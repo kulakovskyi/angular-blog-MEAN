@@ -1,0 +1,23 @@
+<div class="row" *ngIf="posts$ | async as posts; else loading">
+  <div class="col-md-4" *ngFor="let post of posts | sorting: category">
+    <div class="card mb-4 box-shadow">
+      <quill-view [content]="post.image" class='post-image'></quill-view>
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <strong class="mb-2 text-primary">{{post.category}}</strong>
+          <small class="text-muted">{{post.date | date: 'short'}}</small>
+        </div>
+        <h3>
+          <a [routerLink]="['post', post._id]" class="text-dark">{{post.title}}</a>
+        </h3>
+
+        <quill-view [content]="post.text.slice(0, 300)"></quill-view>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  Loading...
+</ng-template>

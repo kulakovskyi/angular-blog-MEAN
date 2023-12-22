@@ -1,0 +1,33 @@
+<div class="container text-center">
+  <form class="form-signin" [formGroup]="form" (ngSubmit)="login()">
+    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
+         height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <div class="form-group">
+      <label for="login" class="sr-only">Your Login</label>
+      <input type="text" formControlName="login" id="login" class="form-control" placeholder="Login">
+      <div
+        *ngIf="form.get('login')?.touched && form.get('login')?.invalid"
+        class="validation">
+        <small *ngIf="form.get('login')?.hasError('required')">Field cannot be empty</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="sr-only">Email address</label>
+      <input type="password" formControlName="password" id="password" class="form-control" placeholder="Password">
+      <div
+        *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
+        class="validation">
+        <small *ngIf="form.get('password')?.hasError('required')">Field cannot be empty</small>
+        <small *ngIf="form.get('password')?.hasError('minlength')">
+          The password must contain at least
+          {{ form.get('password')?.errors?.['minlength']?.['requiredLength'] }}
+          characters.
+          Now {{ form.get('password')?.errors?.['minlength']?.['actualLength'] }}
+        </small>
+      </div>
+    </div>
+    <button [disabled]="form.invalid || submitted" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">© 2023-2024</p>
+  </form>
+</div>

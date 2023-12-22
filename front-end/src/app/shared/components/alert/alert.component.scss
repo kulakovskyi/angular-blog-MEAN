@@ -1,0 +1,12 @@
+.alert-wrap{
+  position: fixed;
+  z-index: 500;
+  top: 80px;
+  right: 50px;
+  max-width: 200px;
+  border-radius: 5px;
+  margin: 0;
+  p{
+    margin: 0;
+  }
+}

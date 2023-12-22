@@ -1,0 +1,26 @@
+<div class="container" *ngIf="post$ | async as post; else loading">
+  <h1>{{post.title}}</h1>
+  <button *ngIf="login === post.author"
+          (click)="deletePost(post._id)"
+          class="btn btn-sm btn-danger">Delete</button>
+  <div class="d-flex justify-content-between align-items-center">
+    <strong class="mb-2 text-primary">{{post.category}}</strong>
+    <small class="text-muted">{{post.date | date: 'short'}}</small>
+    <small class="text-muted">Author: @{{post.author}}</small>
+  </div>
+  <quill-view [content]="post.image" class='post-image'></quill-view>
+  <div class="card-body">
+
+    <h3>
+      <a [routerLink]="['post', post._id]" class="text-dark">{{post.title}}</a>
+    </h3>
+
+    <quill-view [content]="post.text.slice(0, 300)"></quill-view>
+  </div>
+
+</div>
+
+
+<ng-template #loading>
+  Loading...
+</ng-template>
