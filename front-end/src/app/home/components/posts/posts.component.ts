@@ -21,10 +21,13 @@ export class PostsComponent implements OnInit{
 
   ngOnInit() {
     this.dataCategoryService.currentVariable.subscribe((variable) => {
+      if(variable === 'all'){
+        this.category = ''
+        return
+      }
       this.category = variable
     });
     this.posts$ = this.postService.getAllPosts()
-
   }
 
 }

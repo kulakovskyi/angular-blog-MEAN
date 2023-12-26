@@ -16,7 +16,6 @@ export class PostService{
     let headers =
       new HttpHeaders({'Content-Type': 'application/json',
         'Authorization': 'bearer ' + localStorage.getItem('token')})
-    console.log(headers)
     return this.http.post<PostResponseInterface>('http://localhost:3000/dashboard', post,
       {headers: headers}).pipe(
       catchError((error: HttpErrorResponse) => {

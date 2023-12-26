@@ -9,12 +9,14 @@ import { AlertComponent } from './shared/components/alert/alert.component';
 import {AuthService} from "./auth/services/auth.service";
 import {HttpClientModule} from "@angular/common/http";
 import { SortingPipe } from './shared/pipes/sorting.pipe';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AlertComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

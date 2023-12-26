@@ -15,9 +15,15 @@ export class HeaderComponent {
               private alertService: AlertServices) {
   }
 
+  openMenu!: boolean
+
   logoutUser() {
     this.authService.logOut()
     this.router.navigate(['/account/auth'])
     this.alertService.success('You are logged out')
+  }
+
+  toggleMenu() {
+
   }
 }

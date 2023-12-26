@@ -15,7 +15,7 @@
       <a [routerLink]="['post', post._id]" class="text-dark">{{post.title}}</a>
     </h3>
 
-    <quill-view [content]="post.text.slice(0, 300)"></quill-view>
+    <quill-view [content]="post.text"></quill-view>
   </div>
 
 </div>
